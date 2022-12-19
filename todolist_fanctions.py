@@ -1,4 +1,4 @@
-FILE_PATH = 'To_do_list.txt'
+FILE_PATH = 'todo_text_file.txt'
 
 def get_todos(filepath = FILE_PATH):
     with open(filepath, 'r') as file:
