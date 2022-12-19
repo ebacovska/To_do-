@@ -8,3 +8,7 @@ def get_todos(filepath = FILE_PATH):
 def write_todos(todos_arg, filepath = FILE_PATH):
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
+
+if __name__ == "__main__":
+    print("hello")
+    print(get_todos())
