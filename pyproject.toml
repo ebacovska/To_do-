@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "to-do-list"
+version = "0.1.0"
+description = ""
+authors = ["Elen Bačovská <elen.bacovska@gmail.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tk = "^0.1.0"
+pysimplegui = "^4.60.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
