@@ -5,12 +5,19 @@ label = sg.Text("Type in a to-do list")
 input_box = sg.InputText(tooltip="Entre todo", key = "todo")
 add_button = sg.Button("Add")
 list_box = sg.Listbox(values = todolist_fanctions.get_todos(), key = "todos",
- enable_events = True, size = [45,10])
+enable_events = True, size = [45,10])
+complete_bonut = sg.Button("Complete")
+exit_buton = sg.Button("Exit")
+
 
 edit_buton = sg.Button("Edit")
 
 window = sg.Window("My to-do list", 
-            layout=[[label], [input_box, add_button], [list_box, edit_buton]],
+            layout=[[label],
+             [input_box, add_button],
+             [list_box, edit_buton, complete_bonut],
+             [exit_buton]],
+             
             font = ("Helvetica", 20))
 
 while True:
@@ -35,8 +42,20 @@ while True:
         todos[index_of_change_itam] = new_todo  + "\n"
         todolist_fanctions.write_todos(todos)
         window["todos"].update(values = todos)
+
+    elif event == "Complete":
+        todo_to_complete = test["todos"][0]
+        todos = todolist_fanctions.get_todos()
+        todos.remove(todo_to_complete)
+        todolist_fanctions.write_todos(todos)
+        window["todos"].update(values = todos)
+        window["todo"].update(value = "")
+
     elif event == "todos":
         window["todo"].update(value = test["todos"][0])
+
+    elif event == "Exit":
+        break
     elif event == sg.WIN_CLOSED:
         break
         
