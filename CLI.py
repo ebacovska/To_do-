@@ -2,7 +2,7 @@ import todolist_fanctions
 import time
 
 
-now = time.strftime("%b %d, %Y %H:%m:%S")
+now = time.strftime("%b %d, %Y %H:%M:%S")
 print("It is: " + now)
 
 while True:

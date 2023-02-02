@@ -1,6 +1,12 @@
 import todolist_fanctions
 import PySimpleGUI as sg
 import time
+import os 
+
+
+if not os.path.exists("todo_text_file.txt"):
+    with open("todo_text_file.txt", "w") as file:
+        pass
 
 sg.theme("DarkBlue4")
 
@@ -27,7 +33,7 @@ window = sg.Window("My to-do list",
 
 while True:
     event, test= window.read(timeout = 10)
-    window["clock_label"].update(value=time.strftime(("%b %d, %Y %H:%m:%S")))
+    window["clock_label"].update(value=time.strftime(("%b %d, %Y %H:%M:%S")))
     # print(1, event)
     # print(2, test)
     # print(3, test["todos"])
@@ -44,16 +50,12 @@ while True:
         try:
             old_todo = test["todos"][0]
             new_todo = test["todo"]
-
+            new_todo = new_todo.strip()
             todos = todolist_fanctions.get_todos()
             index_of_change_itam = todos.index(old_todo)
-            if "\n" in test["todo"]:
-                todolist_fanctions.write_todos(todos)
-                window["todos"].update(values = todos)
-            else:
-                todos[index_of_change_itam] = new_todo  + "\n"
-                todolist_fanctions.write_todos(todos)
-                window["todos"].update(values = todos)
+            todos[index_of_change_itam] = new_todo  + "\n"
+            todolist_fanctions.write_todos(todos)
+            window["todos"].update(values = todos)
         except IndexError:
             sg.popup("please select a item first",font = ("Helvetica", 20))
     elif event == "Complete":
