@@ -10,6 +10,7 @@ packages = []
 python = "^3.9"
 tk = "^0.1.0"
 pysimplegui = "^4.60.4"
+streamlit = "^1.1.0"
 
 
 [build-system]
