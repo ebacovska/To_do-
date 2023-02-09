@@ -1,4 +1,4 @@
-FILE_PATH = '/home/elen/Projekty/Udemy/The Python Mega Course- Learn Python in 40 Days with 18 Apps/To_do_list/todo_text_file.txt'
+FILE_PATH = '/home/elen/Projekty/Udemy/The Python Mega Course- Learn Python in 40 Days with 18 Apps/Tash_projects/todo_text_file.txt'
 
 def get_todos(filepath = FILE_PATH):
     with open(filepath, 'r') as file_local:
